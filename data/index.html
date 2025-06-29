@@ -1,3 +1,4 @@
+<!-- Toplanma Alanı Haritası Ana Sayfa -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,23 +13,23 @@
   <h3>Toplanma Alanı Haritası</h3>
   <div id="map"></div>
 
-  <!-- Leaflet JS kütüphanesi -->
+  <!-- Leaflet harita kütüphanesi JS -->
   <script src="/data/leaflet.js"></script>
   <script>
-    // Haritayı başlat ve merkezle
+    // Harita oluşturuluyor ve merkezleniyor
     const map = L.map('map').setView([40.9769, 28.8692], 16);
 
-    // Yerel tile sunucusundan harita katmanı ekle
+    // Yerel tile sunucusundan harita katmanı ekleniyor
     L.tileLayer('/tiles/{z}/{x}/{y}.png', {
       maxZoom: 19,
       tileSize: 256
     }).addTo(map);
 
-    // Toplanma noktası işaretçisi
+    // Toplanma noktası marker'ı
     const musterPoint = L.marker([40.9769, 28.8692]).addTo(map)
       .bindPopup('Toplanma Noktası').openPopup();
 
-    // Kullanıcının konumunu haritada göster
+    // Kullanıcının konumunu haritaya ekle
     navigator.geolocation.getCurrentPosition(function(pos) {
       const userLat = pos.coords.latitude;
       const userLon = pos.coords.longitude;

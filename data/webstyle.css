@@ -1,0 +1,67 @@
+/* Modern ve şık web arayüzü için temel stiller */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(120deg, #e0eafc, #cfdef3);
+  margin: 0;
+  padding: 0;
+}
+h2, h3 {
+  color: #2c3e50;
+  text-align: center;
+  margin-top: 32px;
+}
+#main-container {
+  max-width: 420px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(44,62,80,0.08);
+  padding: 32px 24px 24px 24px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+input[type="text"] {
+  padding: 10px 12px;
+  border: 1px solid #bfc9d1;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+input[type="text"]:focus {
+  border: 1.5px solid #3498db;
+  outline: none;
+}
+input[type="submit"] {
+  background: linear-gradient(90deg, #3498db, #6dd5fa);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+input[type="submit"]:hover {
+  background: linear-gradient(90deg, #2980b9, #3498db);
+}
+a {
+  display: inline-block;
+  margin: 12px 0;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #217dbb;
+  text-decoration: underline;
+}
+#map {
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+  margin: 0 auto 24px auto;
+}
