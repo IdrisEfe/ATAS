@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Toplanma Alanı Haritası</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Leaflet harita kütüphanesi CSS -->
+  <link rel="stylesheet" href="/data/leaflet.css" />
+  <style>#map { height: 90vh; width: 100%; }</style>
+</head>
+<body>
+  <h3>Toplanma Alanı Haritası</h3>
+  <div id="map"></div>
+
+  <!-- Leaflet JS kütüphanesi -->
+  <script src="/data/leaflet.js"></script>
+  <script>
+    // Haritayı başlat ve merkezle
+    const map = L.map('map').setView([40.9769, 28.8692], 16);
+
+    // Yerel tile sunucusundan harita katmanı ekle
+    L.tileLayer('/tiles/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      tileSize: 256
+    }).addTo(map);
+
+    // Toplanma noktası işaretçisi
+    const musterPoint = L.marker([40.9769, 28.8692]).addTo(map)
+      .bindPopup('Toplanma Noktası').openPopup();
+
+    // Kullanıcının konumunu haritada göster
+    navigator.geolocation.getCurrentPosition(function(pos) {
+      const userLat = pos.coords.latitude;
+      const userLon = pos.coords.longitude;
+
+      L.marker([userLat, userLon]).addTo(map)
+        .bindPopup('Siz buradasınız').openPopup();
+
+      map.setView([userLat, userLon], 16);
+    });
+  </script>
+</body>
+</html>
